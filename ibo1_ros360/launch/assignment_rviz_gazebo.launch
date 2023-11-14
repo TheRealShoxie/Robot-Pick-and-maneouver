@@ -1,0 +1,48 @@
+<launch>
+<!-- Tell Gazebo where to find our custom object models -->
+<env name="GAZEBO_MODEL_PATH"
+value="$(find ibo1_ros360)/models:$(optenv GAZEBO_MODEL_PATH)" />
+
+<!-- Start Gazebo with our world model-->
+<include file="$(find gazebo_ros)/launch/empty_world.launch">
+<arg name="world_name" value="$(find ibo1_ros360)/worlds/room22.world"/>
+</include>
+
+<!-- Include the launch file to start the fetch robot -->
+<include file="$(find fetch_gazebo)/launch/include/fetch.launch.xml" />
+
+<!-- Start RViz node with our saved view configuration -->
+<node type="rviz" name="rviz" pkg="rviz"
+args="-d $(find ibo1_ros360)/config/assignment_Config_rviz.rviz" />
+
+<!-- Start image processing for colour filters -->
+<include file="$(find ibo1_ros360)/launch/image_proc_colour.launch"/>
+
+<!-- Starting the state machine -->
+<node pkg="ibo1_ros360" type="stateMachine.py" name="robotState" output="screen" />
+
+<!-- Starting the state machine -->
+<node pkg="ibo1_ros360" type="sensorDirection.py" name="sensorThreshold_setThreshold" output="screen" />
+
+<!-- Starting search for object -->
+<node pkg="ibo1_ros360" type="targetAllocation.py" name="targetAllocation" output="screen" />
+
+<!-- Starting search for object -->
+<node pkg="ibo1_ros360" type="drivingIntoOpen.py" name="drivingIntoOpen" output="screen" />
+
+<!-- Starting search for object -->
+<node pkg="ibo1_ros360" type="approachTarget.py" name="approachTarget" output="screen" />
+
+<!-- Starting search for object -->
+<node pkg="ibo1_ros360" type="pickUpObject.py" name="pickUpObject" output="screen" />
+
+<!-- Starting search for object -->
+<node pkg="ibo1_ros360" type="droppingIntoBin.py" name="droppingIntoBin" output="screen" />
+
+<!-- Starting search for object -->
+<node pkg="ibo1_ros360" type="searchingForNextTarget.py" name="searchingForNextTarget" output="screen" />
+
+<!-- Start the moveit for robot arm -->
+<include file="$(find fetch_moveit_config)/launch/move_group.launch"/>
+
+</launch>

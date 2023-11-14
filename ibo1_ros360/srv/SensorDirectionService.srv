@@ -1,0 +1,7 @@
+#changeState is used to go through different states
+int16 thresholdLeft
+int16 thresholdForwardMin
+int16 thresholdForwardMax
+int16 thresholdRight
+---
+string[] response

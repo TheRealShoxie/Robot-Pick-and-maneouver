@@ -1,0 +1,117 @@
+<sdf version='1.7'>
+  <world name='default'>
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+    <include>
+      <uri>model://sun</uri>
+    </include>
+    
+
+    <include>
+      <uri>model://RedCube</uri>
+      <name>cube1</name>
+      <pose>0.693 -4.999 1.025 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://RedCube</uri>
+      <name>cube2</name>
+      <pose>-0.0853 -8.074 0.877 0 0 0</pose>
+    </include>
+
+
+    <include>
+      <uri>model://BlackCylinder</uri>
+      <name>cylinder1</name>
+      <pose>-0.777086 1.6771 0.499992 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://BlackCylinder</uri>
+      <name>cylinder2</name>
+      <pose>-0.540203 -2.5323 0.499998 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://BlackCylinder</uri>
+      <name>cylinder3</name>
+      <pose>1.12474 -1.40643 0.499998 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://BlackCylinder</uri>
+      <name>cylinder4</name>
+      <pose>3.2081 -0.338127 0.499993 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://BlackCylinder</uri>
+      <name>cylinder5</name>
+      <pose>5.08474 -1.38108 0.499993 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://BlackCylinder</uri>
+      <name>cylinder6</name>
+      <pose>6.32471 -2.67805 0.50075 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://BlackCylinder</uri>
+      <name>cylinder7</name>
+      <pose>6.38707 2.59126 0.499998 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://BlackCylinder</uri>
+      <name>cylinder8</name>
+      <pose>8.02806 1.67804 0.499998 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://BlackCylinder</uri>
+      <name>cylinder9</name>
+      <pose>9.37243 0.421085 0.499992 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://BlackCylinder</uri>
+      <name>cylinder10</name>
+        <pose>1.03709 2.90645 0.499998 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://WhiteCylinder</uri>
+      <name>cylinder11</name>
+      <pose>0.57604 -4.91033 0.49999 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>model://WhiteCylinderSmall</uri>
+      <name>cylinder12</name>
+      <pose>-0.243783 -8.14081 0.375525 0 0 0</pose>
+    </include>
+
+    <light name='spot_light' type='spot'>
+      <pose>3.23001 -5 25 0 -0 0</pose>
+      <diffuse>1 1 1 1</diffuse>
+      <specular>1 1 1 1</specular>
+      <direction>0 0 -1</direction>
+      <attenuation>
+        <range>100</range>
+        <constant>0.1</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <cast_shadows>0</cast_shadows>
+      <spot>
+        <inner_angle>0.9</inner_angle>
+        <outer_angle>1.5</outer_angle>
+        <falloff>1</falloff>
+      </spot>
+    </light>
+
+    <include>
+      <uri>model://greenBin</uri>
+      <name>greenBin</name>
+      <pose>3.66348 -8.69612 0.365455 0 -0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://room22</uri>
+      <name>room22</name>
+      <pose>3.74962 -2.83171 0 0 -0 0</pose>
+    </include>
+  </world>
+</sdf>

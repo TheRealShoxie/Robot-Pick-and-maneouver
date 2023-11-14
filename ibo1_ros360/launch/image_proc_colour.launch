@@ -1,0 +1,34 @@
+<launch>
+	<!-- Specify the image input topic from the camera -->
+	<arg name="input_image" value="/head_camera/rgb/image_raw"/>
+
+	<!--load rgb colour filtering to locate patchs of colour based on limits specified
+		publishes image to /[node_name]/image [default node name: rgb_color_filter]
+	-->
+	<include file="$(find opencv_apps)/launch/rgb_color_filter.launch">
+		<arg name="node_name" value="rgb_color_filter" />
+		<arg name="image" value="$(arg input_image)"/>
+		<arg name="r_limit_max" value="255" />
+		<arg name="r_limit_min" value="90" />
+		<arg name="g_limit_max" value="10" />
+		<arg name="g_limit_min" value="0" />
+		<arg name="b_limit_max" value="10" />
+		<arg name="b_limit_min" value="0" />
+		<arg name="debug_view" value="false" />
+	</include>
+	
+	
+	<!--calculate image moments for contours in input image.
+		Using output of rgb colour filter, this gives coordinates of 
+			colour patches extracted from filter.
+
+		publishes image to /[node_name]/image
+		moments to /[node_name]/moments
+			default node name: contour_moments
+	-->
+	<include file="$(find opencv_apps)/launch/contour_moments.launch">
+		<arg name="node_name" value="contour_moments" />
+		<arg name="image" value="/rgb_color_filter/image"/>
+		<arg name="debug_view" value="false" />
+	</include>
+</launch>

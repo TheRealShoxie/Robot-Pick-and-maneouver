@@ -1,0 +1,4 @@
+#changeState is used to go through different states
+int8 changeState
+---
+bool response
